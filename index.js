@@ -12,13 +12,13 @@ function searchRepositories(){
   }).fail(displayError())
 };
 
-function displayRepositories(response){
-  return response.repos.map(repo =>
+function displayRepositories(data){
+  return data.items.map(item =>
     `<div>
-        <h2><a href="${repo.html_url}">${repo.name}</a></h2>
-        <p>${repo.description}</p>
-        <img src="${repo.owner.avatar_url}" alt="${repo.owner.login}">
-        <a href="${repo.owner.html_url}">${repo.owner.login}</a>
-        <p><a href="#" data-repository="${repo.name}" data-owner="${repo.owner.login}" onclick="showCommits(this)">Show Commits</a></p>
+        <h2><a href="${item.html_url}">${item.name}</a></h2>
+        <p>${item.description}</p>
+        <img src="${item.owner.avatar_url}" alt="${item.owner.login}">
+        <a href="${item.owner.html_url}">${item.owner.login}</a>
+        <p><a href="#" data-repository="${item.name}" data-owner="${item.owner.login}" onclick="showCommits(this)">Show Commits</a></p>
       </div>`)
 };
