@@ -23,8 +23,4 @@ function displayRepositories(data){
       </div>`)
 };
 
-function showCommits(repo) {
-  $.get(`https://api.github.com/repos/${repo.dataset.owner}/${repo.dataset.repository}/commits`, function(response){
-    $('#details').html(displayCommits(response))
-  }).fail(displayError())
-}};
+
