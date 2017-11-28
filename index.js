@@ -29,9 +29,3 @@ function showCommits(repo) {
   }).fail(displayError())
 }};
 
-function displayCommits() {
-  return data.map(commit =>
-    `<div>
-        <h2>${commit.sha}</h2>
-      </div>`)
-};
