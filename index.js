@@ -22,3 +22,16 @@ function displayRepositories(data){
         <p><a href="#" data-repository="${item.name}" data-owner="${item.owner.login}" onclick="showCommits(this)">Show Commits</a></p>
       </div>`)
 };
+
+function showCommits(repo) {
+  $.get(`https://api.github.com/repos/${repo.dataset.owner}/${repo.dataset.repository}/commits`, function(response){
+    $('#details').html(displayCommits(response))
+  }).fail(displayError())
+}};
+
+function displayCommits() {
+  return data.map(commit =>
+    `<div>
+        <h2>${commit.sha}</h2>
+      </div>`)
+};
