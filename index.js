@@ -28,4 +28,3 @@ function showCommits(repo) {
     $('#details').html(displayCommits(response))
   }).fail(displayError())
 }};
-
